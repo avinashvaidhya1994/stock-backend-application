@@ -22,15 +22,10 @@ public class InsertionStockPrice {
 //		 File file = new File("C:\\Users\\skone\\OneDrive\\Desktop\\DB\\Data\\history");
 		File file = new File("G:\\Data\\history");
 	        File[] files = file.listFiles();
-	        int fileCount = 0;
 	        for(File f: files){
-	        	if(fileCount > 2) {
-	        		break;
-	        	}
 	            String fileNameWithOutExt = FilenameUtils.removeExtension(f.getName());
 	            System.out.println(f);
 	            InsertionToData(f.getPath(),fileNameWithOutExt);
-	            fileCount++;
 	        }
 		
 		

@@ -184,7 +184,7 @@ public class AnalysisServiceImpl implements AnalysisService{
 				responseMap.put("errorMessage", symbol + " , not found ");
 				return responseMap;
 			}
-			String company = rs.getString("companyName");
+			String company = rs.getString("company");
 			List<CompanyMovingAverage> movingAverageList = getCompanyData(symbol,company,years);
 			if(movingAverageList.isEmpty()) {
 				responseMap.put("errorMessage","Data for " + symbol + ", not found");

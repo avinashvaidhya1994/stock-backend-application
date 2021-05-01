@@ -26,16 +26,11 @@ public class InsertionStockTimeFrame {
 //		 File file = new File("C:\\Users\\skone\\OneDrive\\Desktop\\DB\\Data\\history");
 		File file = new File("G:\\Data\\history");
 	        File[] files = file.listFiles();
-	        int fileCount = 0;
 	        for(File f: files){
-	        	if(fileCount > 2) {
-	        		break;
-	        	}
 	            String fileNameWithOutExt = FilenameUtils.removeExtension(f.getName());
 	            System.out.println(f);
 	            List<TimeFrame> timeFrameList = reteriveFromPrice(fileNameWithOutExt);
 	           insertionToData(timeFrameList);
-	           fileCount++;
 	        }
 		
 		
@@ -56,8 +51,8 @@ public class InsertionStockTimeFrame {
 				 TimeFrame timeFrameObject = new TimeFrame();
 				
 				 timeFrameObject.setSymbol(results.getString("symbol"));
-				 timeFrameObject.setStartDate(results.getDate("max"));
-				 timeFrameObject.setEndDate(results.getDate("min"));
+				 timeFrameObject.setStartDate(results.getDate("min"));
+				 timeFrameObject.setEndDate(results.getDate("max"));
 				 timeFrameList.add(timeFrameObject);
 			 }
 		} catch (SQLException e) {
